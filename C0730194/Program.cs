@@ -15,6 +15,8 @@ namespace C0730194
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
+            p.ReadTextFiles();
+            Console.ReadLine();
 
         }
         public void Run() { this.ReadTextFiles(); }
