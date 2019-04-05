@@ -22,7 +22,7 @@ namespace C0730194
         public void ReadTextFiles()
         {
             // Read file using StramReader. Read file line by line
-            using (StreamReader file = new StreamReader("U:/Users/730194/C0730194-Assignment4/C0730194Beowulf.txt"))
+            using (StreamReader file = new StreamReader("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
             {
                 int counter = 0;
                 string ln;
