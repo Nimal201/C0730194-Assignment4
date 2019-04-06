@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace C0730194
 {
+
     class Program
     {
         ArrayList Beowulf;
 
         static void Main(string[] args)
         {
+
             Program p = new Program();
             p.Beowulf = new ArrayList();
             p.Wordfinder();
@@ -99,14 +101,52 @@ namespace C0730194
             int f = 0;
             foreach (var line in File.ReadAllLines("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
             {
+                f++;
                 if (line.Contains("sea") && line.Contains("fare"))
+                {
+                    Console.WriteLine(f);
+                }
+
+            }
+        }
+        public void Wordskipper()
+        {
+            int f = 0;
+            int m = 0;
+            int n = 0;
+            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            {
+                if (line.Contains("fare"))
                 {
                     f++;
                 }
 
             }
-            Console.WriteLine(f);
+            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            {
+                if (line.Contains("war") && line.Contains("fare"))
+                {
+                    m++;
+                }
+
+            }
+            n = f - m;
+            Console.WriteLine(n);
         }
+        public void Letters()
+        {
+
+            StreamReader reader = new StreamReader("Beowulf.txt");
+            string script = reader.ReadToEnd();
+            int numberOfLetters = 0;
+            foreach (char letter in script)
+            {
+                numberOfLetters++;
+            }
+            Console.WriteLine(numberOfLetters);
+
+        }
+
     }
 
 }
