@@ -15,10 +15,9 @@ namespace C0730194
 
         static void Main(string[] args)
         {
-
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.Wordfinder();
+            p.Wordskipper();
             Console.ReadLine();
 
         }
@@ -99,22 +98,22 @@ namespace C0730194
         public void Wordfinder()
         {
             int f = 0;
-            foreach (var line in File.ReadAllLines("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
+            foreach (var line in File.ReadAllLines("Beowulf.txt"))
             {
-                f++;
                 if (line.Contains("sea") && line.Contains("fare"))
                 {
-                    Console.WriteLine(f);
+                    f++;
                 }
 
             }
+            Console.WriteLine(f);
         }
         public void Wordskipper()
         {
             int f = 0;
             int m = 0;
             int n = 0;
-            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            foreach (var line in File.ReadAllLines("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
             {
                 if (line.Contains("fare"))
                 {
@@ -122,7 +121,7 @@ namespace C0730194
                 }
 
             }
-            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            foreach (var line in File.ReadAllLines("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
             {
                 if (line.Contains("war") && line.Contains("fare"))
                 {
@@ -132,19 +131,6 @@ namespace C0730194
             }
             n = f - m;
             Console.WriteLine(n);
-        }
-        public void Letters()
-        {
-
-            StreamReader reader = new StreamReader("Beowulf.txt");
-            string script = reader.ReadToEnd();
-            int numberOfLetters = 0;
-            foreach (char letter in script)
-            {
-                numberOfLetters++;
-            }
-            Console.WriteLine(numberOfLetters);
-
         }
 
     }
