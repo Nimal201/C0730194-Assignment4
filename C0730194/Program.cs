@@ -16,9 +16,9 @@ namespace C0730194
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.CountLinesReader();
-            Console.ReadLine();
+            p.ReadTextFiles();
 
+            Console.ReadLine();
         }
         public void Run()
         {
@@ -27,47 +27,48 @@ namespace C0730194
 
         public void ReadTextFiles()
         {
-
-            // Read file using StreamReader. Read file line by line
-            using (StreamReader file = new StreamReader("Beowulf.txt"))
+            using (StreamReader file = new StreamReader("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
             {
-                int counter = 0;
-                string ln;
 
-                while ((ln = file.ReadLine()) != null)
+
+
+
+                int words = 0;
+                string delim = " ,.";
+                string[] fields = null;
+                string line = null;
+
+                while (!file.EndOfStream)
                 {
-                    Console.WriteLine(ln);
-                    Beowulf.Add(ln);
+                    line = file.ReadLine();//each time you read a line you should split it into the words
+                    line.Trim();
+                    fields = line.Split(delim.ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    words += fields.Length; //and just add how many of them there is
                 }
+
+
+
+                Console.WriteLine("The word count is {0}", words);
+
+
                 file.Close();
-                Console.WriteLine($"File has {counter} lines.");
+
             }
         }
         public int FindNumberOfBlankSpaces(string line)
         {
             int countletters = 0;
             int countSpaces = 0;
-            {
-                foreach (char c in line)
-                {
-                    if (char.IsLetter(c)) { countletters++; }
-                    if (char.IsWhiteSpace(c)) { countSpaces++; }
-                }
-                return countSpaces;
-            }
-        }
-        public void CountLinesReader()
-        {
-            long lineCounter = 0;
-            using (StreamReader fil = new StreamReader("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
-            {
-                while (fil.ReadLine() != null)
-                {
-                    lineCounter++;
-                }
-                Console.WriteLine(lineCounter);
-            }
-        }
-    }
 
+            foreach (char c in line)
+            {
+                if (char.IsLetter(c)) { countletters++; }
+
+                if (char.IsWhiteSpace(c)) { countletters++; }
+            }
+            return countSpaces;
+
+        }
+
+    }
 }
