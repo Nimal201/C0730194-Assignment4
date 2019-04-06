@@ -16,7 +16,7 @@ namespace C0730194
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.WordCounter();
+            p.Wordfinder();
             Console.ReadLine();
 
         }
@@ -71,7 +71,7 @@ namespace C0730194
         public void WordCounter()
         {
 
-            StreamReader reader = new StreamReader("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt");
+            StreamReader reader = new StreamReader("Beowulf.txt");
             string script = reader.ReadToEnd();
 
             var text = script.Trim();
@@ -93,6 +93,19 @@ namespace C0730194
             Console.WriteLine(wordCount);
 
 
+        }
+        public void Wordfinder()
+        {
+            int f = 0;
+            foreach (var line in File.ReadAllLines("U:/Users/730194/C0730194-Assignment4/C0730194/Beowulf.txt"))
+            {
+                if (line.Contains("sea") && line.Contains("fare"))
+                {
+                    f++;
+                }
+
+            }
+            Console.WriteLine(f);
         }
     }
 
